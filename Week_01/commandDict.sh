@@ -1,0 +1,1 @@
+cat shakespeare.txt | tr ' ' '\n'|  tr '\011' '\n' | sed 's/[^a-zA-Z]//g' | sed '/^$/d' | tr 'A-Z' 'a-z' | sort | uniq | comm -23 - <( tr 'A-Z' 'a-z' < dict.txt ) | wc -l
